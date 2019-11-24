@@ -1,0 +1,28 @@
+{
+  "name": "@xmmt/weather-1",
+  "version": "0.0.1",
+  "description": "exercise for beginners",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xmmt/web-lab-7-sem.git"
+  },
+  "keywords": [
+    "exercise",
+    "lab",
+    "beginners",
+    "weather"
+  ],
+  "author": "Maksim Mashkov <mkmax472@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xmmt/web-lab-7-sem/issues"
+  },
+  "homepage": "https://github.com/xmmt/web-lab-7-sem#readme",
+  "dependencies": {
+    "prettier": "^1.19.1"
+  }
+}
