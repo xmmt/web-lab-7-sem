@@ -2,7 +2,7 @@
   "name": "@xmmt/weather-1",
   "version": "0.0.1",
   "description": "exercise for beginners",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "prettier": "prettier --write src/**/*.js"
   },
@@ -16,7 +16,10 @@
     "beginners",
     "weather"
   ],
-  "author": "Maksim Mashkov <mkmax472@gmail.com>",
+  "author": {
+    "name": "Maksim Mashkov",
+    "email": "mkmax472@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/xmmt/web-lab-7-sem/issues"
