@@ -4,7 +4,7 @@
   "description": "exercise for beginners",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "prettier": "prettier --write src/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "url": "https://github.com/xmmt/web-lab-7-sem/issues"
   },
   "homepage": "https://github.com/xmmt/web-lab-7-sem#readme",
-  "dependencies": {
+  "devDependencies": {
     "prettier": "^1.19.1"
   }
 }
