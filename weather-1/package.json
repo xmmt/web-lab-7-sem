@@ -22,6 +22,7 @@
     "name": "Maksim Mashkov",
     "email": "mkmax472@gmail.com"
   },
+  "private": true,
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/xmmt/web-lab-7-sem/issues"
