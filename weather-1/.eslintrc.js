@@ -32,7 +32,7 @@ module.exports = {
         'space-before-function-paren': 0, // Несовместимо с prettier
 
         'max-len': ['error', 100, 2, { ignoreUrls: true, }], // airbnb позволяет некоторые пограничные случаи
-        'no-console': 'error', // airbnb использует предупреждение
+        'no-console': 'warn', // airbnb использует предупреждение
         'no-alert': 'error', // airbnb использует предупреждение
 
         'no-param-reassign': 'off', // Это - не наш стиль?
