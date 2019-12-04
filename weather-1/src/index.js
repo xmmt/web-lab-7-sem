@@ -11,7 +11,7 @@ wind speed: {wind.speed} meters per hour.
 </p>
 `;
 const errorTemplate = `
-<p>Error: {message}</p>
+<p class="red">Error: {message}</p>
 `;
 const weatherCompiled = dust.compile(weatherTemplate, "weatherTemplate");
 const errorCompiled = dust.compile(errorTemplate, "errorTemplate");
@@ -24,7 +24,7 @@ async function onsubmit(e) {
   const inputValue = document.getElementById("city-input").value;
   e.preventDefault();
   if (inputValue === "") {
-    weatherDiv.innerHTML = "<p>Empty city name</p>";
+    weatherDiv.innerHTML = `<p class="red">Empty city name</p>`;
     return;
   }
   const weather = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&APPID=${APIKey}`);
