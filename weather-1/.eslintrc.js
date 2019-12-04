@@ -4,7 +4,7 @@ module.exports = {
         browser: true,
         node: true,
     },
-    extends: ['airbnb', 'plugin:jest/recommended', 'jest-enzyme'],
+    extends: ['airbnb', 'plugin:jest/recommended', 'jest-enzyme', '@puthnith/dust'],
     plugins: [
         'babel',
         'import',
