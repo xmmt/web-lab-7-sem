@@ -6,3 +6,4 @@ exercises for beginners
 npm install
 npm run build
 ```
+Result page is `/weather-1/src/index.html`
