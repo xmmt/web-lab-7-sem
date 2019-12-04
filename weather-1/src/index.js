@@ -1,7 +1,8 @@
 const APIKey = "7b6d16b9aad94f104b9310d42ef9ebf0";
 const weatherTemplate = `
 <p>City, Region: {name}, {sys.country}</p>
-<p>Weather:{#weather}{description}, {/weather}
+<p>
+{?weather}Weather:{#weather} {description},{/weather} {/weather}
 {#main}
 temperature: {temp} K, 
 humidity: {humidity}%, 
