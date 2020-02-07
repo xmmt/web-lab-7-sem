@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 // Импортируем наш хук здесь.
-import usePosition from "./usePosition";
+import usePosition from './usePosition';
 
 const UsePositionDemo = () => {
   // Получаем позицию браузера (или ошибку) здесь.
@@ -10,7 +10,7 @@ const UsePositionDemo = () => {
   return (
     <>
       latitude: {latitude}, longitude: {longitude}, error: {error}
-      <button type="button" onClick={getLocation}>
+      <button type='button' onClick={getLocation}>
         Узнать местоположение
       </button>
     </>
