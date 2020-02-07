@@ -15,6 +15,15 @@ const usePosition = () => {
     setError(err.message);
   };
 
+  const getLocation = () => {
+    const geo = navigator.geolocation;
+    if (!geo) {
+      setError("Геолокация не поддерживается браузером");
+      return;
+    }
+    geo.getCurrentPosition(onChange, onError);
+  };
+
   useEffect(() => {
     const geo = navigator.geolocation;
 
@@ -31,7 +40,7 @@ const usePosition = () => {
     return () => geo.clearWatch(watcher);
   }, []);
 
-  return { ...position, error };
+  return { ...position, error, getLocation };
 };
 
 export default usePosition;
