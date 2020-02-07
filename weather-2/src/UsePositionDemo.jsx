@@ -10,7 +10,7 @@ const UsePositionDemo = () => {
   return (
     <>
       latitude: {latitude}, longitude: {longitude}, error: {error}
-      <button type='button' onClick={getLocation}>
+      <button type="button" onClick={getLocation}>
         Узнать местоположение
       </button>
     </>

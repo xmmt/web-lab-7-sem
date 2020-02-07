@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const usePosition = () => {
   const [position, setPosition] = useState({});
@@ -18,7 +18,7 @@ const usePosition = () => {
   const getLocation = () => {
     const geo = navigator.geolocation;
     if (!geo) {
-      setError("Геолокация не поддерживается браузером");
+      setError('Геолокация не поддерживается браузером');
       return;
     }
     geo.getCurrentPosition(onChange, onError);
@@ -28,7 +28,7 @@ const usePosition = () => {
     const geo = navigator.geolocation;
 
     if (!geo) {
-      setError("Геолокация не поддерживается браузером");
+      setError('Геолокация не поддерживается браузером');
       return;
     }
 
