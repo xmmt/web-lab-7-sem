@@ -1,4 +1,4 @@
-const APIKey = "7b6d16b9aad94f104b9310d42ef9ebf0";
+const APIKey = "2cfb2504ef1d0b5ecfc979c8e3be0c8b";
 const weatherTemplate = `
 <p>City, Region: {name}, {sys.country}</p>
 <p>
