@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { getLocationName } from '../utils/getLocationName'
 
 export const UserLocation = ({ userLocation, setUserLocation }) => {
-  const [isFetching, setIsFetching] = useState(false);
-  const [buttonText, setButtonText] = useState('Узнать');
   const onChange = ({ coords }) => {
-    setUserLocation({
-      ...userLocation,
-      coords: {
-        latitude: coords.latitude,
-        longtitude: coords.longitude
-      }
-    });
+      getLocationName(coords).then(result => {
+        setUserLocation({
+            name: result,
+          coords: {
+            latitude: coords.latitude,
+            longitude: coords.longitude
+          }
+        });
+      });
   };
   const onError = () => {
-    setButtonText('(._. )');
-    setTimeout(setButtonText('Узнать'), 2000);
+    setUserLocation(null);
   };
   const getLocation = () => {
     const geo = navigator.geolocation;
@@ -23,16 +23,7 @@ export const UserLocation = ({ userLocation, setUserLocation }) => {
       onError();
       return;
     }
-    geo.getCurrentPosition(
-      position => {
-        onChange(position);
-        setIsFetching(false);
-      },
-      error => {
-        onError(error);
-        setIsFetching(false);
-      }
-    );
+    geo.getCurrentPosition(onChange, onError);
   };
   useEffect(() => {
     const geo = navigator.geolocation;
@@ -44,26 +35,22 @@ export const UserLocation = ({ userLocation, setUserLocation }) => {
     return () => geo.clearWatch(watcher);
   }, []);
 
-  if (isFetching) {
-    return <div>Мое местоположение: ...</div>;
-  }
   return (
     <div>
       Мое местоположение:{' '}
-      {userLocation ? (
-        <p>{userLocation.name}</p>
-      ) : (
-        <button type="button" onClick={getLocation}>
-          {buttonText}
-        </button>
-      )}
+      {userLocation ? 
+        <span>{userLocation.name}</span>
+       : <span>Неизвестно</span>}
+        <span><button type="button" onClick={getLocation}>
+          Обновить местоположение
+        </button></span>
     </div>
   );
 };
 
 UserLocation.propTypes = {
   userLocation: PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     coords: PropTypes.shape({})
   }),
   setUserLocation: PropTypes.func.isRequired
