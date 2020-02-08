@@ -31,7 +31,7 @@ const usePosition = () => {
     }
 
     const watcher = geo.watchPosition(onChange, onError);
-
+    // eslint-disable-next-line consistent-return
     return () => geo.clearWatch(watcher);
   }, []);
 
