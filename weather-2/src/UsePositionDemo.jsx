@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import usePosition from './usePosition';
 
-const UsePositionDemo = () => {
-  const { latitude, longitude, error, getLocation } = usePosition();
+const UsePositionDemo = getLocation => {
+  const { latitude, longitude, error /* , getLocation */ } = usePosition();
+
+  useEffect(() => {}, []);
 
   return (
     <>

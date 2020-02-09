@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import { pageReducer } from './page';
-import { userReducer } from './user';
+import { citiesReducer } from './cities';
 
 export const rootReducer = combineReducers({
-  page: pageReducer,
-  user: userReducer
+  cities: citiesReducer
 });
 
 export default rootReducer;

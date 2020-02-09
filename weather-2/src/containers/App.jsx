@@ -1,75 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { User } from '../components/User';
-import { Page } from '../components/Page';
-import { getPhotos } from '../actions/PageActions';
+import { MainCity } from '../components/MainCity';
+import { Cities } from '../components/Cities';
+import { UserLocation } from '../components/UserLocation';
+import { citiesAdd, citiesRemove, citiesFetchData } from '../actions/cities';
 
-import logo from '../logo.svg';
+// import // State or Local Processing Plugins
+// '@devexpress/dx-react-grid';
+// import {
+//   Grid,
+//   Table,
+//   TableHeaderRow
+// } from '@devexpress/dx-react-grid-bootstrap4';
+
+// import '@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css';
+
 import '../App.css';
 
-import UsePositionDemo from '../UsePositionDemo';
-
-const App = ({ user, page, getPhotosAction }) => {
-  const { name, surname, age } = user;
+const App = ({ cities, add, remove, fetchData }) => {
+  const [userLocation, setUserLocation] = useState(null);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p>
-          <UsePositionDemo />
-        </p>
-        <h1 className="App-title">Title</h1>
-      </header>
-      <p className="App-intro">Here will be</p>
-      <p>
-        My name is: {name} {surname}, {age}
-      </p>
-      <User name={user.name} />
-      <Page
-        photos={page.photos}
-        year={page.year}
-        isFetching={page.isFetching}
-        getPhotos={getPhotosAction}
+      <UserLocation
+        userLocation={userLocation}
+        setUserLocation={setUserLocation}
       />
+      <MainCity userLocation={userLocation} add={add} fetchData={fetchData} />
+      <Cities cities={cities} remove={remove} fetchData={fetchData} />
     </div>
   );
 };
 
 App.propTypes = {
-  user: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    surname: PropTypes.string.isRequired,
-    age: PropTypes.number.isRequired
-  }).isRequired,
-  page: PropTypes.shape({
-    year: PropTypes.number.isRequired,
-    // photos: PropTypes.shape([]).isRequired,
-    // photos: PropTypes.arrayOf(PropTypes.string),
-    photos: PropTypes.instanceOf(Array),
-    setYear: PropTypes.func.isRequired
-  }).isRequired,
-  setYearAction: PropTypes.func.isRequired
+  cities: PropTypes.shape([]).isRequired,
+  add: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
+  fetchData: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  user: state.user,
-  page: state.page
+  cities: state.cities
 });
 
 const mapDispatchToProps = dispatch => ({
-  getPhotosAction: year => dispatch(getPhotos(year))
+  add: city => dispatch(citiesAdd(city)),
+  remove: city => dispatch(citiesRemove(city)),
+  fetchData: city => dispatch(citiesFetchData(city))
 });
 
+// eslint-disable-next-line
 export default connect(mapStateToProps, mapDispatchToProps)(App);
