@@ -18,7 +18,7 @@ import { citiesAdd, citiesRemove, citiesFetchData } from '../actions/cities';
 
 import '../App.css';
 
-const App = ({ cities, add, remove, fetchData }) => {
+const App = ({ citiesList, addCity, removeCity, fetchData }) => {
   const [userLocation, setUserLocation] = useState(null);
   return (
     <div className="App">
@@ -26,26 +26,42 @@ const App = ({ cities, add, remove, fetchData }) => {
         userLocation={userLocation}
         setUserLocation={setUserLocation}
       />
-      <MainCity userLocation={userLocation} add={add} fetchData={fetchData} />
-      <Cities cities={cities} remove={remove} fetchData={fetchData} />
+      <MainCity
+        userLocation={userLocation}
+        addCity={addCity}
+        fetchData={fetchData}
+      />
+      <Cities
+        citiesList={citiesList}
+        removeCity={removeCity}
+        fetchData={fetchData}
+      />
     </div>
   );
 };
 
 App.propTypes = {
-  cities: PropTypes.shape([]).isRequired,
-  add: PropTypes.func.isRequired,
-  remove: PropTypes.func.isRequired,
+  citiesList: PropTypes.arrayOf(
+    PropTypes.objectOf([
+      PropTypes.string.isRequired,
+      PropTypes.objectOf([
+        PropTypes.number.isRequired,
+        PropTypes.number.isRequired
+      ])
+    ])
+  ).isRequired,
+  addCity: PropTypes.func.isRequired,
+  removeCity: PropTypes.func.isRequired,
   fetchData: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  cities: state.cities
+  citiesList: state.citiesList
 });
 
 const mapDispatchToProps = dispatch => ({
-  add: city => dispatch(citiesAdd(city)),
-  remove: city => dispatch(citiesRemove(city)),
+  addCity: city => dispatch(citiesAdd(city)),
+  removeCity: city => dispatch(citiesRemove(city)),
   fetchData: city => dispatch(citiesFetchData(city))
 });
 

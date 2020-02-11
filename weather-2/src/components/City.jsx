@@ -2,58 +2,63 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 export const City = ({ city, remove, fetchData }) => {
-const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   useEffect(() => {
-    if (city && !city.info) {  
-        fetchData(city);
+    if (city && !city.info) {
+      fetchData(city);
     }
   }, []);
-if (city.info) {
-   setData( [
-    {
+  if (city.info) {
+    setData([
+      {
         type: 'Температура',
         value: city.info.main.temp + ' ˚C'
-    },
-    {
+      },
+      {
         type: 'Скорость ветра',
         value: city.info.wind.speed + ' м/с'
-    },
-    {
+      },
+      {
         type: 'Состояние неба',
         value: city.info.weather[0].description
-    },
-    {
+      },
+      {
         type: 'Давление',
         value: city.info.main.pressure + ' КПа'
-    },
-    {
+      },
+      {
         type: 'Влажность',
         value: city.info.main.humidity + ' %'
-    }
-]);
-}
+      }
+    ]);
+  }
   if (data.length === 0) {
     return (
       <div>
-      {city.name? <span>{city.name}</span>:<span></span>} 
+        {city.name ? <span>{city.name}</span> : <span></span>}
         LOADING
-        <button type="button" onClick={remove}>Remove</button>
+        <button type="button" onClick={remove}>
+          Remove
+        </button>
       </div>
-    )
+    );
   }
-  const weatherData = data.map(data =>
-    <li key={data.type}><div className="alert alert-dark d-flex">
-    <div>{data.type}</div>
-    <div className="ml-auto">{data.value}</div>
-</div>
+  const weatherData = data.map(data => (
+    <li key={data.type}>
+      <div className="alert alert-dark d-flex">
+        <div>{data.type}</div>
+        <div className="ml-auto">{data.value}</div>
+      </div>
     </li>
-);
-return (
-  <ul className="weather-list__li">
+  ));
+  return (
+    <ul className="weather-list__li">
       {weatherData}
-      <button type="button" onClick={remove}>Remove</button>
-  </ul>
-);
+      <button type="button" onClick={remove}>
+        Remove
+      </button>
+    </ul>
+  );
 };
 
 City.propTypes = {
@@ -96,7 +101,6 @@ export default City;
     </button>
   );
   */
-
 
 /*
  <div className="container-fluid" style={{ paddingRight: 0 }}>

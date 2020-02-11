@@ -19,6 +19,7 @@ export function citiesReducer(state = [], action) {
     }
 
     case CITIES_FETCH_DATA: {
+      return state;
     }
 
     case CITIES_ADD: {

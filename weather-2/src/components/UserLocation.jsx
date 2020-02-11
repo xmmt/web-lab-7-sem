@@ -14,7 +14,7 @@ export const UserLocation = ({ userLocation, setUserLocation }) => {
       });
     });
   };
-  const onError = (error) => {
+  const onError = error => {
     setUserLocation(null);
   };
   const getLocation = () => {
@@ -25,7 +25,7 @@ export const UserLocation = ({ userLocation, setUserLocation }) => {
     }
     geo.getCurrentPosition(onChange, onError);
   };
- /* useEffect(() => {
+  /* useEffect(() => {
     const geo = navigator.geolocation;
     if (!geo) {
       return;
