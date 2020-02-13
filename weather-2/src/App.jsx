@@ -8,9 +8,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <p>
-            Weather
-          </p>
+          <p>Weather</p>
           <p>
             <UsePositionDemo />
           </p>
