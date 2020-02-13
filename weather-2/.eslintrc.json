@@ -28,6 +28,7 @@
         "prettier"
     ],
     "rules": {
-        "react/prefer-stateless-function": "off"
+        "react/prefer-stateless-function": "off",
+        "react-redux/prefer-separate-component-file": "off"
     }
 }

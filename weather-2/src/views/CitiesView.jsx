@@ -4,7 +4,7 @@ import MiniCityView from './MiniCityView';
 
 export default class CitiesView extends Component {
   render() {
-    const { cities, removeCity } = this.props;
+    const { citiesList, removeCity } = this.props;
     return (
       <div>
         <ul>
