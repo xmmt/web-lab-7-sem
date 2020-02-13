@@ -6,8 +6,6 @@ const usePosition = () => {
 
   const onChange = ({ coords }) => {
     const { latitude, longitude } = coords;
-    // Здесь мы могли бы сохранить весь объект position, но для
-    // ясности давайте явно перечислим, какие свойства нас интересуют.
     setPosition({ latitude, longitude });
   };
 
@@ -32,11 +30,8 @@ const usePosition = () => {
       return;
     }
 
-    // Подписываемся на изменение геопозиции браузера.
     const watcher = geo.watchPosition(onChange, onError);
 
-    // В случае, если компонент будет удаляться с экрана
-    // производим отписку от слежки, чтобы не засорять память.
     return () => geo.clearWatch(watcher);
   }, []);
 
