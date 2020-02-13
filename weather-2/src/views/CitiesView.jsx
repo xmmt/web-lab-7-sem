@@ -8,7 +8,7 @@ export default class CitiesView extends Component {
     return (
       <div>
         <ul>
-          {cities.map(city => (
+          {citiesList.map(city => (
             <MiniCityView key={city.uid} city={city} remove={removeCity} />
           ))}
         </ul>
@@ -18,7 +18,7 @@ export default class CitiesView extends Component {
 }
 
 CitiesView.propTypes = {
-  cities: PropsType.arrayOf(
+  citiesList: PropsType.arrayOf(
     PropsType.exact({
       uid: PropsType.string.isRequired,
       loading: PropsType.bool.isRequired,
