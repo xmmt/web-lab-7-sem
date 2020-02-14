@@ -1,6 +1,6 @@
 import { ADD_CITY, REMOVE_CITY } from '../actions';
 
-export default function(state = { citiesList: [] }, action) {
+export default function(state = [], action) {
   switch (action.type) {
     case ADD_CITY: {
       state.push({ uid: action.payload });

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropsType from 'prop-types';
 import MiniCityView from './MiniCityView';
+import { CityPropTypes } from '../utils/weather-prop-types';
 
 export default class CitiesView extends Component {
   render() {
@@ -18,18 +19,6 @@ export default class CitiesView extends Component {
 }
 
 CitiesView.propTypes = {
-  citiesList: PropsType.arrayOf(
-    PropsType.exact({
-      uid: PropsType.string.isRequired,
-      loading: PropsType.bool.isRequired,
-      location: PropsType.exact({
-        coords: PropsType.exact({
-          latitude: PropsType.number.isRequired,
-          longitude: PropsType.number.isRequired
-        }).isRequired,
-        weather: PropsType.shape({}).isRequired
-      }).isRequired
-    }).isRequired
-  ).isRequired,
+  citiesList: PropsType.arrayOf(CityPropTypes).isRequired,
   removeCity: PropsType.func.isRequired
 };

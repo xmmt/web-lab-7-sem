@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropsType from 'prop-types';
 import CityView from '../views/CityView';
 import { addCityAction, setLocationAction, fetchDataAction } from '../actions';
+import { CityPropTypes } from '../utils/weather-prop-types';
 
 class City extends Component {
   render() {
@@ -22,14 +23,14 @@ class City extends Component {
 }
 
 City.propTypes = {
-  city: PropsType.shape({}).isRequired,
+  city: CityPropTypes.isRequired,
   addCity: PropsType.func.isRequired,
   setLocation: PropsType.func.isRequired,
   fetchData: PropsType.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  city: state.city
+  city: state.mainCity
 });
 
 const mapDispatchToProps = dispatch => ({

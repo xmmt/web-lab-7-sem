@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropsType from 'prop-types';
+import { WeatherPropTypes } from '../utils/weather-prop-types';
 
 export default class WeatherView extends Component {
   render() {
@@ -11,13 +11,6 @@ export default class WeatherView extends Component {
     );
   }
 }
-
-export const WeatherPropTypes = PropsType.arrayOf(
-  PropsType.exact({
-    type: PropsType.string.isRequired,
-    value: PropsType.string.isRequired
-  }).isRequired
-);
 
 WeatherView.propTypes = {
   weather: WeatherPropTypes.isRequired
