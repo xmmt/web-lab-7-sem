@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropsType from 'prop-types';
 import CityView from '../views/CityView';
-import { addCityAction } from '../actions';
+import { addCityAction, setLocationAction, fetchDataAction } from '../actions';
 
 class City extends Component {
   render() {
-    const { city, addCity } = this.props;
+    const { city, addCity, setLocation, fetchData } = this.props;
     return (
       <div>
         <p>Cities</p>
-        <CityView city={city} addCity={addCity} />
+        <CityView
+          city={city}
+          addCity={addCity}
+          setLocation={setLocation}
+          fetchData={fetchData}
+        />
       </div>
     );
   }
@@ -18,7 +23,9 @@ class City extends Component {
 
 City.propTypes = {
   city: PropsType.shape({}).isRequired,
-  addCity: PropsType.func.isRequired
+  addCity: PropsType.func.isRequired,
+  setLocation: PropsType.func.isRequired,
+  fetchData: PropsType.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -26,7 +33,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addCity: uid => dispatch(addCityAction(uid))
+  addCity: uid => dispatch(addCityAction(uid)),
+  setLocation: location => dispatch(setLocationAction(location)),
+  fetchData: location => dispatch(fetchDataAction(location))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(City);
