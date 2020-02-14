@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropsType from 'prop-types';
 import WeatherView from './WeatherView';
-import { CityPropTypes } from '../utils/weather-prop-types';
+import { CityPropTypes } from '../utils/prop-types';
 
 export default class CityView extends Component {
   render() {
-    const { city, addCity } = this.props;
+    const { city, addCity, getUserLocation } = this.props;
     return (
       <div>
         <p>CityView</p>
@@ -14,6 +14,9 @@ export default class CityView extends Component {
         <button type="button" onClick={addCity}>
           Add to favorites
         </button>
+        <button type="button" onClick={getUserLocation}>
+          Get user location
+        </button>
       </div>
     );
   }
@@ -21,5 +24,6 @@ export default class CityView extends Component {
 
 CityView.propTypes = {
   city: CityPropTypes.isRequired,
-  addCity: PropsType.func.isRequired
+  addCity: PropsType.func.isRequired,
+  getUserLocation: PropsType.func.isRequired
 };

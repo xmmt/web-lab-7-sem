@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { WeatherPropTypes } from '../utils/weather-prop-types';
+import { WeatherPropTypes } from '../utils/prop-types';
 
 export default class WeatherView extends Component {
   render() {

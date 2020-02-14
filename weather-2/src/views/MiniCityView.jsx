@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropsType from 'prop-types';
 import WeatherView from './WeatherView';
-import { CityPropTypes } from '../utils/weather-prop-types';
+import { CityPropTypes } from '../utils/prop-types';
 
 export default class MiniCityView extends Component {
   render() {
