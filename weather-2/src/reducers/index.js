@@ -1,12 +1,21 @@
 import { combineReducers } from 'redux';
-import locationReducer from './location';
-import citiesReducer from './cities';
-import mainCityReducer from './main';
+import { items, newCityValue } from './items';
 
 export const rootReducer = combineReducers({
-  userLocation: locationReducer,
-  citiesList: citiesReducer,
-  mainCity: mainCityReducer
+  items,
+  newCityValue
 });
 
 export default rootReducer;
+
+// import { combineReducers } from 'redux';
+// import citiesReducer from './cities';
+// import mainCityReducer from './main';
+//
+// export const rootReducer = combineReducers({
+//   citiesList: citiesReducer,
+//   mainCity: mainCityReducer
+// });
+//
+// export default rootReducer;
+//
