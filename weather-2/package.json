@@ -54,6 +54,17 @@
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-redux": "^3.0.3",
     "prettier": "^1.19.1",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/runtime": "^7.7.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3",
+    "jquery": "^3.4.1",
+    "popper": "^1.0.1",
+    "react-test-renderer": "^16.11.0",
+    "redux-mock-store": "^1.5.3",
+    "typescript": "^3.6.4"
   }
 }
